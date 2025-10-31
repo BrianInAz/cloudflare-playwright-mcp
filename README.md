@@ -5,7 +5,8 @@ A production-ready Cloudflare Workers deployment of the Playwright MCP (Model Co
 ## 🚀 Live Deployment
 
 **Production URL**: https://playwright-mcp-bjzy.bjzy.workers.dev  
-**MCP Endpoint**: https://playwright-mcp-bjzy.bjzy.workers.dev/sse
+**MCP Endpoint**: https://playwright-mcp-bjzy.bjzy.workers.dev/mcp  
+**Legacy SSE Endpoint**: https://playwright-mcp-bjzy.bjzy.workers.dev/sse (not recommended)
 
 ## ✨ Features
 
@@ -27,8 +28,10 @@ A production-ready Cloudflare Workers deployment of the Playwright MCP (Model Co
 ### Cloudflare AI Playground
 1. Go to: https://playground.ai.cloudflare.com/
 2. Set model to: `llama-3.3-70b-instruct-fp8-fast`
-3. MCP Server URL: `https://playwright-mcp-bjzy.bjzy.workers.dev/sse`
-4. Connect and enjoy 23 browser automation tools!
+3. MCP Server URL: `https://playwright-mcp-bjzy.bjzy.workers.dev/mcp`
+4. Connect and enjoy 24 browser automation tools!
+
+> **Note**: Use `/mcp` endpoint for reliable HTTP transport. The `/sse` endpoint may experience connection timeouts due to Cloudflare Workers' execution limits.
 
 ### Example Commands
 ```

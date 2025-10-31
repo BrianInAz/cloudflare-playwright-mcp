@@ -9,11 +9,14 @@ export default {
     const { pathname }  = new URL(request.url);
 
     switch (pathname) {
+      case '/':
+      case '/mcp':
+        // Use HTTP transport instead of SSE for better Workers compatibility
+        return PlaywrightMCP.serve('/mcp').fetch(request, env, ctx);
       case '/sse':
       case '/sse/message':
+        // Legacy SSE endpoint - not recommended for Workers due to connection timeout issues
         return PlaywrightMCP.serveSSE('/sse').fetch(request, env, ctx);
-      case '/mcp':
-        return PlaywrightMCP.serve('/mcp').fetch(request, env, ctx);
       default:
         return new Response('Not Found', { status: 404 });
     }
